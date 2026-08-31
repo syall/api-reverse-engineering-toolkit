@@ -1,0 +1,34 @@
+[
+  {
+    "name": "getBookById (Bible book)",
+    "method": "GET",
+    "url": "https://bibleread.online/api/books/91",
+    "expectedStatus": 200,
+    "expectedKeys": ["book"],
+    "expectedContentType": "application/json",
+    "client": { "op": "getBookById", "args": { "id": 91 } }
+  },
+  {
+    "name": "findVerses (populated result)",
+    "method": "GET",
+    "url": "https://bibleread.online/api/verses/find?query=Melchizedek&matchWholeWord=true&bookType=BibleBook",
+    "expectedStatus": 200,
+    "expectedKeys": ["resultCollection", "matchesCount"],
+    "expectedContentType": "application/json",
+    "client": { "op": "findVerses", "args": { "query": "Melchizedek", "matchWholeWord": true } }
+  },
+  {
+    "name": "findVerses (confirmed-empty result)",
+    "method": "GET",
+    "url": "https://bibleread.online/api/verses/find?query=zzzznomatch&bookType=BibleBook",
+    "expectedStatus": 200,
+    "expectedKeys": ["resultCollection", "matchesCount"]
+  },
+  {
+    "name": "getChapterById",
+    "method": "GET",
+    "url": "https://bibleread.online/api/chapters/176559",
+    "expectedStatus": 200,
+    "expectedKeys": ["chapter", "verses"]
+  }
+]

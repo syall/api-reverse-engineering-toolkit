@@ -1,0 +1,44 @@
+{
+  "name": "api-reverse-engineering-toolkit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude skill + a standalone verification script for reverse-engineering undocumented HTTP APIs into a verified spec, and checking a generated client against the live API.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/api-reverse-engineering-toolkit.git"
+  },
+  "homepage": "https://github.com/your-org/api-reverse-engineering-toolkit#readme",
+  "bugs": "https://github.com/your-org/api-reverse-engineering-toolkit/issues",
+  "keywords": [
+    "claude",
+    "claude-skill",
+    "api",
+    "reverse-engineering",
+    "openapi",
+    "smithy",
+    "codegen"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "scripts": {
+    "verify": "node --experimental-strip-types scripts/verify_endpoints.ts",
+    "verify:legacy-node": "tsx scripts/verify_endpoints.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.9.1",
+    "prettier": "^3.3.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.69.0"
+  }
+}
